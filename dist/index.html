@@ -523,7 +523,7 @@
     </div>
   </nav>
 
-  <!-- ========== HERO SECTION ========== -->
+  <!-- Hero Section -->
   <section id="hero" class="hero flex flex-col">
     <!-- Video Background -->
     <video autoplay muted loop playsinline>
@@ -814,7 +814,7 @@
   </footer>
 
   <script>
-    // ========== MENU DATA ==========
+    // Menu Data
     const menuData = [
       { id: 1, name: "Signature Charcoal Burger", desc: "Double patty, aged cheddar, smoky bacon, peri-mayo, charcoal bun.", price: 89, image: "Signature Charcoal Burger.jpg", category: "burgers" },
       { id: 2, name: "Peri-Peri Chicken Burger", desc: "Flame-grilled chicken breast, peri-peri glaze, fresh slaw, brioche.", price: 79, image: "Peri-Peri Chicken Burger.jpg", category: "burgers" },
@@ -834,7 +834,7 @@
       { id: 16, name: "South African Wines", desc: "Selected Cape wines — red, white, or rosé by the glass.", price: 44, image: "South African Wines.jpg", category: "drinks" }
     ];
 
-    // ========== CART ==========
+    // Cart
     let cart = [];
     const cartSidebar = document.getElementById('cart-sidebar');
     const cartOverlay = document.getElementById('cart-overlay');
@@ -924,13 +924,13 @@
 
     document.getElementById('checkout-btn').addEventListener('click', () => {
       if (cart.length === 0) return;
-      const items = cart.map(i => `• ${i.name} ×${i.qty} — R${(i.price * i.qty).toFixed(2)}`).join('\n');
+      const items = cart.map(i => `* ${i.name} x${i.qty} - R${(i.price * i.qty).toFixed(2)}`).join('\n');
       const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
       const msg = encodeURIComponent(`Hi Fiestas Chicken! I'd like to order:\n\n${items}\n\nTotal: R${total.toFixed(2)}\n\nPlease confirm availability & collection time.`);
       window.open(`https://wa.me/27787757734?text=${msg}`, '_blank');
     });
 
-    // ========== RENDER MENU ==========
+    // Render Menu
     const menuGrid = document.getElementById('menu-grid');
     let activeCategory = 'all';
 
@@ -970,7 +970,7 @@
       }, 100);
     }
 
-    // ========== TAB FILTER ==========
+    // Tab Filter
     document.querySelectorAll('.menu-tab').forEach(tab => {
       tab.addEventListener('click', function() {
         document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
@@ -985,7 +985,7 @@
       });
     });
 
-    // ========== COMBO CART BUTTONS ==========
+    // Combo Cart Buttons
     document.querySelectorAll('.add-to-cart-combo').forEach(btn => {
       btn.addEventListener('click', function() {
         addToCart(
@@ -997,7 +997,7 @@
       });
     });
 
-    // ========== NAVBAR ==========
+    // Navbar
     const navbar = document.getElementById('navbar');
     let lastScroll = 0;
     window.addEventListener('scroll', () => {
@@ -1016,7 +1016,7 @@
       lastScroll = current;
     });
 
-    // ========== MOBILE MENU ==========
+    // Mobile Menu
     document.getElementById('mobile-menu-btn').addEventListener('click', () => {
       document.getElementById('mobile-menu').classList.toggle('hidden');
     });
@@ -1026,7 +1026,7 @@
       });
     });
 
-    // ========== REVEAL ON SCROLL ==========
+    // Reveal on Scroll
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1037,7 +1037,7 @@
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // ========== EMBER / PARTICLE EFFECT ==========
+    // Ember Particle Effect
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -1208,7 +1208,7 @@
     }
     animateParticles();
 
-    // ========== LIGHTBOX ==========
+    // Lightbox
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lb-img');
     const lbCaption = document.getElementById('lb-caption');
@@ -1264,7 +1264,7 @@
       if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; showLightboxImage(); }
     });
 
-    // ========== INIT ==========
+    // Init
     renderMenu('all');
     updateCart();
   </script>

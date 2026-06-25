@@ -3,13 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fiestas Chicken – Flame. Fire. Flavor.</title>
-  <meta name="description" content="Premium South African charcoal-grilled peri-peri chicken. Authentic charcoal braai, bold peri-peri flavor." />
+  <title>Fiestas Chicken – Authentic Charcoal Peri-Peri Chicken | Johannesburg</title>
+  <meta name="description" content="Fiestas Chicken serves authentic South African charcoal-grilled peri-peri chicken in Johannesburg. Flame-grilled burgers, family combos & braai boxes. Order online for delivery or pickup." />
+  <meta name="keywords" content="Fiestas Chicken, charcoal chicken, peri-peri, Johannesburg, braai, flame grilled, South African restaurant, chicken burger, family feast, Uber Eats, Mr D" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://chicken-fiestas.malikstopher.workers.dev/" />
+  <link rel="icon" type="image/jpeg" href="logo.jpg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:title" content="Fiestas Chicken – Authentic Charcoal Peri-Peri Chicken" />
+  <meta property="og:description" content="Fire-kissed, boldly spiced charcoal-grilled peri-peri chicken in Johannesburg. Order online for delivery or pickup." />
+  <meta property="og:image" content="https://chicken-fiestas.malikstopher.workers.dev/logo.jpg" />
+  <meta property="og:url" content="https://chicken-fiestas.malikstopher.workers.dev/" />
+  <meta property="og:site_name" content="Fiestas Chicken" />
+  <meta property="og:locale" content="en_ZA" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fiestas Chicken – Authentic Charcoal Peri-Peri Chicken" />
+  <meta name="twitter:description" content="Fire-kissed, boldly spiced charcoal-grilled peri-peri chicken in Johannesburg." />
+  <meta name="twitter:image" content="https://chicken-fiestas.malikstopher.workers.dev/logo.jpg" />
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Fiestas Chicken",
+    "description": "Authentic South African charcoal-grilled peri-peri chicken restaurant in Johannesburg.",
+    "url": "https://chicken-fiestas.malikstopher.workers.dev/",
+    "image": "https://chicken-fiestas.malikstopher.workers.dev/logo.jpg",
+    "telephone": "+27 78 775 7734",
+    "email": "info@fiestaschicken.co.za",
+    "servesCuisine": "South African, Peri-Peri, Charcoal Grills",
+    "priceRange": "R49–R449",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Cnr Print & Zeiss Rd, Laser Park",
+      "addressLocality": "Johannesburg",
+      "addressRegion": "Gauteng",
+      "postalCode": "2040",
+      "addressCountry": "ZA"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -26.1869,
+      "longitude": 27.9909
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "11:00", "closes": "22:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "11:00", "closes": "23:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "20:00" }
+    ],
+    "hasMenu": "https://chicken-fiestas.malikstopher.workers.dev/#menu",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "ratingCount": "1500"
+    }
+  }
+  </script>
   <style>
     *, ::before, ::after { box-sizing: border-box; }
     :root {
@@ -396,7 +458,7 @@
         <span class="text-gray-400 text-sm">Subtotal</span>
         <span class="text-white font-semibold text-lg" id="cart-total">R0.00</span>
       </div>
-      <button class="btn-gold w-full py-3 rounded-xl font-semibold text-sm">Checkout</button>
+      <button id="checkout-btn" class="btn-gold w-full py-3 rounded-xl font-semibold text-sm">Checkout via WhatsApp</button>
     </div>
   </div>
 
@@ -462,11 +524,11 @@
     <div class="flex-1"></div>
     <div class="hero-content text-center px-4 sm:px-6 max-w-5xl mx-auto">
       <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-        <a href="#menu" class="btn-primary text-white px-10 py-4 rounded-full text-base sm:text-lg font-semibold inline-flex items-center gap-3">
+      <div class="flex flex-row items-center justify-center gap-2 sm:gap-6">
+        <a href="#menu" class="btn-primary text-white px-3 sm:px-10 py-2.5 sm:py-4 rounded-full text-[0.7rem] sm:text-lg font-semibold inline-flex items-center gap-1.5 sm:gap-3 whitespace-nowrap">
           <i class="fas fa-fire"></i> Explore Menu
         </a>
-        <a href="#contact" class="btn-outline px-10 py-4 rounded-full text-base sm:text-lg font-semibold inline-flex items-center gap-3">
+        <a href="#contact" class="btn-outline px-3 sm:px-10 py-2.5 sm:py-4 rounded-full text-[0.7rem] sm:text-lg font-semibold inline-flex items-center gap-1.5 sm:gap-3 whitespace-nowrap">
           <i class="fas fa-truck"></i> Order Online
         </a>
       </div>
@@ -495,16 +557,16 @@
         </div>
         <div class="reveal grid grid-cols-2 gap-3">
           <div class="rounded-xl overflow-hidden">
-            <img src="chicken-grilled.jpg" alt="Charcoal grilling" class="w-full h-64 object-cover rounded-xl" />
+            <img src="chicken-grilled.jpg" alt="Charcoal grilling chicken over open flame at Fiestas Chicken Johannesburg" class="w-full h-64 object-cover rounded-xl" />
           </div>
           <div class="rounded-xl overflow-hidden mt-8">
-            <img src="fire.jpg" alt="Open flame cooking" class="w-full h-64 object-cover rounded-xl" />
+            <img src="fire.jpg" alt="Open flame charcoal braai cooking at Fiestas Chicken" class="w-full h-64 object-cover rounded-xl" />
           </div>
           <div class="rounded-xl overflow-hidden -mt-8">
-            <img src="Close-up Flame-Grilled Chicken.jpg" alt="Flame grilled chicken" class="w-full h-48 object-cover rounded-xl" />
+            <img src="Close-up Flame-Grilled Chicken.jpg" alt="Flame grilled peri-peri quarter chicken at Fiestas Chicken" class="w-full h-48 object-cover rounded-xl" />
           </div>
           <div class="rounded-xl overflow-hidden">
-            <img src="art.jpg" alt="Peri-peri chicken" class="w-full h-48 object-cover rounded-xl" />
+            <img src="art.jpg" alt="Peri-peri chicken platter at Fiestas Chicken restaurant" class="w-full h-48 object-cover rounded-xl" />
           </div>
         </div>
       </div>
@@ -843,6 +905,14 @@
     document.getElementById('cart-overlay').addEventListener('click', () => {
       cartSidebar.classList.remove('open');
       cartOverlay.classList.remove('open');
+    });
+
+    document.getElementById('checkout-btn').addEventListener('click', () => {
+      if (cart.length === 0) return;
+      const items = cart.map(i => `• ${i.name} ×${i.qty} — R${(i.price * i.qty).toFixed(2)}`).join('\n');
+      const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      const msg = encodeURIComponent(`Hi Fiestas Chicken! I'd like to order:\n\n${items}\n\nTotal: R${total.toFixed(2)}\n\nPlease confirm availability & collection time.`);
+      window.open(`https://wa.me/27787757734?text=${msg}`, '_blank');
     });
 
     // ========== RENDER MENU ==========

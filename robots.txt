@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chicken-fiestas.malikstopher.workers.dev/sitemap.xml

@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fiestas Chicken – Flame. Fire. Flavor.</title>
+  <meta name="description" content="Premium South African charcoal-grilled peri-peri chicken. Authentic charcoal braai, bold peri-peri flavor." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *, ::before, ::after { box-sizing: border-box; }
+    :root {
+      --red: #C8102E;
+      --red-dark: #8B1E2E;
+      --gold: #D4AF37;
+      --gold-light: #E8B923;
+      --bg-dark: #0A0A0A;
+      --bg-card: #111111;
+      --bg-surface: #1A1A1A;
+      --text-body: #B0B0B0;
+      --text-light: #E5E5E5;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-body);
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; color: var(--text-light); }
+
+    .text-gold { color: var(--gold); }
+    .text-red { color: var(--red); }
+    .bg-red { background: var(--red); }
+    .bg-gold { background: var(--gold); }
+    .border-gold { border-color: var(--gold); }
+    .border-red { border-color: var(--red); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+      color: white;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(200,16,46,0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(200,16,46,0.5);
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), #B8962E);
+      color: #0A0A0A;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(212,175,55,0.3);
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(212,175,55,0.5);
+    }
+    .btn-outline {
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      background: transparent;
+      transition: all 0.3s ease;
+    }
+    .btn-outline:hover {
+      background: var(--gold);
+      color: #0A0A0A;
+      transform: translateY(-2px);
+    }
+
+    .glow-red { box-shadow: 0 0 30px rgba(200,16,46,0.15); }
+    .glow-gold { box-shadow: 0 0 30px rgba(212,175,55,0.15); }
+    .hover-glow-red:hover { box-shadow: 0 0 40px rgba(200,16,46,0.25); }
+    .hover-glow-gold:hover { box-shadow: 0 0 40px rgba(212,175,55,0.25); }
+
+    .menu-tab {
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: transparent;
+      color: var(--text-body);
+    }
+    .menu-tab:hover { border-color: var(--gold); color: var(--gold); }
+    .menu-tab.active {
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 4px 20px rgba(200,16,46,0.3);
+    }
+
+    .menu-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    .menu-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(212,175,55,0.08);
+    }
+    .menu-card img { transition: transform 0.6s ease; }
+    .menu-card:hover img { transform: scale(1.08); }
+
+    .combo-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+    .combo-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 1.25rem;
+      border: 1px solid transparent;
+      transition: all 0.4s ease;
+      pointer-events: none;
+    }
+    .combo-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    }
+    .combo-card:hover::after {
+      border-color: var(--gold);
+      box-shadow: 0 0 40px rgba(212,175,55,0.1);
+    }
+    .combo-card .best-seller {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: linear-gradient(135deg, var(--gold), #B8962E);
+      color: #0A0A0A;
+      font-weight: 700;
+      font-size: 0.7rem;
+      padding: 0.3rem 1rem;
+      border-radius: 9999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .nav-link {
+      position: relative;
+      color: var(--text-body);
+      transition: color 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover { color: var(--gold); }
+    .nav-link:hover::after { width: 100%; }
+
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -8px;
+      background: var(--red);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+    .cart-count.bump { transform: scale(1.4); }
+
+    #cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 420px;
+      height: 100vh;
+      background: var(--bg-card);
+      border-left: 1px solid rgba(255,255,255,0.06);
+      z-index: 1000;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    #cart-sidebar.open { transform: translateX(0); }
+    #cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    #cart-overlay.open { opacity: 1; pointer-events: all; }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .cart-item-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 0.5rem;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: transparent;
+      color: var(--text-body);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
+    }
+    .qty-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .remove-btn {
+      background: none;
+      border: none;
+      color: #666;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: color 0.2s ease;
+      padding: 0.25rem;
+    }
+    .remove-btn:hover { color: var(--red); }
+
+    .section-title {
+      font-size: 2.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .section-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text-body);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .gold-accent {
+      display: inline-block;
+      width: 50px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: fill;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.25) 50%, rgba(10,10,10,0.6) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-bottom: 4rem;
+    }
+
+    #particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.9;
+    }
+
+    .gallery-item {
+      border-radius: 1rem;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.1); }
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.6) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .gallery-item:hover::after { opacity: 1; }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      opacity: 0.2;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-dark); }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+    @media (max-width: 768px) {
+      .section-title { font-size: 2rem; }
+      .menu-tab { padding: 0.35rem 0.9rem; font-size: 0.8rem; }
+      #cart-sidebar { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Cart Overlay -->
+  <div id="cart-overlay"></div>
+
+  <!-- Cart Sidebar -->
+  <div id="cart-sidebar">
+    <div class="flex items-center justify-between p-5 border-b border-white/5">
+      <div>
+        <h3 class="text-lg font-semibold text-white">Your Cart</h3>
+        <p class="text-sm text-gray-500" id="cart-item-count">0 items</p>
+      </div>
+      <button id="cart-close" class="text-gray-500 hover:text-white text-2xl transition">&times;</button>
+    </div>
+    <div class="flex-1 overflow-y-auto p-5" id="cart-items">
+      <div class="flex flex-col items-center justify-center h-full text-center text-gray-600">
+        <svg class="w-16 h-16 mb-4 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+        </svg>
+        <p class="text-sm">Your cart is empty</p>
+        <p class="text-xs text-gray-700 mt-1">Add some fiery goodness!</p>
+      </div>
+    </div>
+    <div class="p-5 border-t border-white/5">
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-gray-400 text-sm">Subtotal</span>
+        <span class="text-white font-semibold text-lg" id="cart-total">R0.00</span>
+      </div>
+      <button class="btn-gold w-full py-3 rounded-xl font-semibold text-sm">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 lg:h-20">
+        <a href="#" class="flex items-center gap-3">
+          <img src="logo.jpg" alt="Fiestas Chicken Logo" class="w-10 h-10 rounded-full object-cover" />
+          <span class="text-white font-serif text-xl font-bold tracking-tight hidden sm:block" style="font-family:'Playfair Display',serif;">
+            FIESTAS<span class="text-gold">.</span>
+          </span>
+        </a>
+
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="#hero" class="nav-link text-sm font-medium">Home</a>
+          <a href="#menu" class="nav-link text-sm font-medium">Menu</a>
+          <a href="#combos" class="nav-link text-sm font-medium">Combos</a>
+          <a href="#story" class="nav-link text-sm font-medium">Our Story</a>
+          <a href="#order" class="nav-link text-sm font-medium">Order</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <button id="cart-toggle" class="relative text-gray-400 hover:text-gold transition-colors">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+            </svg>
+            <span id="cart-count-badge" class="cart-count">0</span>
+          </button>
+          <button id="mobile-menu-btn" class="lg:hidden text-gray-400 hover:text-white">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden bg-[#0A0A0A]/98 backdrop-blur-lg border-t border-white/5">
+      <div class="px-4 py-4 space-y-3">
+        <a href="#hero" class="block text-gray-400 hover:text-gold py-2 transition">Home</a>
+        <a href="#menu" class="block text-gray-400 hover:text-gold py-2 transition">Menu</a>
+        <a href="#combos" class="block text-gray-400 hover:text-gold py-2 transition">Combos</a>
+        <a href="#story" class="block text-gray-400 hover:text-gold py-2 transition">Our Story</a>
+        <a href="#order" class="block text-gray-400 hover:text-gold py-2 transition">Order</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section id="hero" class="hero flex flex-col">
+    <!-- Video Background -->
+    <video autoplay muted loop playsinline>
+      <source src="video/hero-16x9.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay absolute inset-0"></div>
+
+    <!-- Background particles (subtle smoke/embers) -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none" style="z-index: 1;">
+      <div id="bgEmbers" class="absolute inset-0"></div>
+    </div>
+
+    <div class="flex-1"></div>
+    <div class="hero-content text-center px-4 sm:px-6 max-w-5xl mx-auto">
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+        <a href="#menu" class="btn-primary text-white px-10 py-4 rounded-full text-base sm:text-lg font-semibold inline-flex items-center gap-3">
+          <i class="fas fa-fire"></i> Explore Menu
+        </a>
+        <a href="#contact" class="btn-outline px-10 py-4 rounded-full text-base sm:text-lg font-semibold inline-flex items-center gap-3">
+          <i class="fas fa-truck"></i> Order Online
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section id="story" class="py-24 lg:py-32 relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <span class="section-subtitle text-gold">Our Story</span>
+          <div class="gold-accent"></div>
+          <h2 class="section-title text-white mt-4">Where the Fire<br/>Meets the <span class="text-gold">Flavor</span></h2>
+          <div class="space-y-5 mt-8 text-gray-400 leading-relaxed">
+            <p>
+              Fiestas Chicken was born from a simple belief: the best chicken is cooked over real charcoal, kissed by open flame, and marinated in the boldest peri-peri this side of the equator.
+            </p>
+            <p>
+              Every bird is flame-grilled to order — crisp, smoky, and juicy. Our peri-peri is crafted in-house using African bird's eye chilies, garlic, and a secret blend of spices passed down through generations.
+            </p>
+            <p class="text-gold font-medium">
+              No gas. No shortcuts. Just fire, flavor, and a whole lot of soul.
+            </p>
+          </div>
+        </div>
+        <div class="reveal grid grid-cols-2 gap-3">
+          <div class="rounded-xl overflow-hidden">
+            <img src="chicken-grilled.jpg" alt="Charcoal grilling" class="w-full h-64 object-cover rounded-xl" />
+          </div>
+          <div class="rounded-xl overflow-hidden mt-8">
+            <img src="fire.jpg" alt="Open flame cooking" class="w-full h-64 object-cover rounded-xl" />
+          </div>
+          <div class="rounded-xl overflow-hidden -mt-8">
+            <img src="Close-up Flame-Grilled Chicken.jpg" alt="Flame grilled chicken" class="w-full h-48 object-cover rounded-xl" />
+          </div>
+          <div class="rounded-xl overflow-hidden">
+            <img src="art.jpg" alt="Peri-peri chicken" class="w-full h-48 object-cover rounded-xl" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature Menu -->
+  <section id="menu" class="py-24 lg:py-32 relative bg-[#0D0D0D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center reveal">
+        <span class="section-subtitle text-gold">Signature Menu</span>
+        <div class="flex justify-center"><span class="gold-accent"></span></div>
+        <h2 class="section-title text-white mt-4">Crafted by Fire,<br/>Served with <span class="text-gold">Pride</span></h2>
+      </div>
+
+      <!-- Tabs -->
+      <div class="flex flex-wrap justify-center gap-2 mt-12 reveal" id="menu-tabs">
+        <button class="menu-tab active" data-category="all">All</button>
+        <button class="menu-tab" data-category="burgers">Burgers</button>
+        <button class="menu-tab" data-category="grills">Charcoal Grills</button>
+        <button class="menu-tab" data-category="peri">Peri-Peri</button>
+        <button class="menu-tab" data-category="starters">Starters</button>
+        <button class="menu-tab" data-category="desserts">Desserts</button>
+        <button class="menu-tab" data-category="drinks">Drinks</button>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10" id="menu-grid"></div>
+    </div>
+  </section>
+
+  <!-- Feast & Combos -->
+  <section id="combos" class="py-24 lg:py-32 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center reveal">
+        <span class="section-subtitle text-gold">Feast & Combos</span>
+        <div class="flex justify-center"><span class="gold-accent"></span></div>
+        <h2 class="section-title text-white mt-4">Share the <span class="text-gold">Fire</span></h2>
+        <p class="text-gray-500 mt-4 max-w-xl mx-auto">Our legendary sharing platters — built for tables full of hungry souls.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8 mt-14">
+        <!-- Family Feast -->
+        <div class="combo-card reveal">
+          <div class="best-seller">Best Seller</div>
+          <div class="relative h-64 overflow-hidden">
+            <img src="Family Feast.jpg" alt="Family Feast" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 lg:p-8">
+            <h3 class="text-2xl font-bold text-white font-serif">Family Feast</h3>
+            <p class="text-sm text-gray-500 mt-1">Whole grilled chicken | 6 peri-peri wings | 4 large sides | 2L coke | Garlic bread</p>
+            <div class="flex items-center justify-between mt-6">
+              <span class="text-2xl font-bold text-gold">R349</span>
+              <button class="btn-primary px-5 py-2.5 rounded-xl text-xs font-semibold add-to-cart-combo"
+                data-name="Family Feast" data-price="349" data-image="Family Feast.jpg">Order Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ultimate Braai Box -->
+        <div class="combo-card reveal">
+          <div class="relative h-64 overflow-hidden">
+            <img src="Ultimate Braai Box.jpg" alt="Ultimate Braai Box" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 lg:p-8">
+            <h3 class="text-2xl font-bold text-white font-serif">Ultimate Braai Box</h3>
+            <p class="text-sm text-gray-500 mt-1">2 x quarter chicken | 8 ribs | 6 wings | 3 sides | 2L coke | Rolls</p>
+            <div class="flex items-center justify-between mt-6">
+              <span class="text-2xl font-bold text-gold">R449</span>
+              <button class="btn-primary px-5 py-2.5 rounded-xl text-xs font-semibold add-to-cart-combo"
+                data-name="Ultimate Braai Box" data-price="449" data-image="Ultimate Braai Box.jpg">Order Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Date Night Duo -->
+        <div class="combo-card reveal">
+          <div class="relative h-64 overflow-hidden">
+            <img src="Date Night Duo.jpg" alt="Date Night Duo" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6 lg:p-8">
+            <h3 class="text-2xl font-bold text-white font-serif">Date Night Duo</h3>
+            <p class="text-sm text-gray-500 mt-1">2 x flame-grilled fillets | 2 sides | 2 drinks | Shared dessert</p>
+            <div class="flex items-center justify-between mt-6">
+              <span class="text-2xl font-bold text-gold">R249</span>
+              <button class="btn-primary px-5 py-2.5 rounded-xl text-xs font-semibold add-to-cart-combo"
+                data-name="Date Night Duo" data-price="249" data-image="Date Night Duo.jpg">Order Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Fire Experience -->
+  <section class="py-24 lg:py-32 relative bg-[#0D0D0D]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center reveal">
+        <span class="section-subtitle text-gold">Live Fire Experience</span>
+        <div class="flex justify-center"><span class="gold-accent"></span></div>
+        <h2 class="section-title text-white mt-4">The Art of <span class="text-gold">Charcoal Braai</span></h2>
+        <p class="text-gray-500 mt-4 max-w-xl mx-auto">Every meal at Fiestas is a performance — flames, smoke, and the sizzle of perfection.</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-14">
+        <div class="gallery-item col-span-2 row-span-2 h-80">
+          <img src="art.jpg" alt="Braai experience" class="w-full h-full object-cover" />
+        </div>
+        <div class="gallery-item h-40">
+          <img src="chicken-grilled.jpg" alt="Grilled chicken" class="w-full h-full object-cover" />
+        </div>
+        <div class="gallery-item h-40">
+          <img src="Close-up Flame-Grilled Chicken.jpg" alt="Flame grilled" class="w-full h-full object-cover" />
+        </div>
+        <div class="gallery-item h-40">
+          <img src="fire.jpg" alt="Open fire" class="w-full h-full object-cover" />
+        </div>
+        <div class="gallery-item h-40">
+          <img src="cg1os.jpg" alt="Cooking process" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order & Delivery -->
+  <section id="order" class="py-24 lg:py-32 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="reveal">
+        <span class="section-subtitle text-gold">Order & Delivery</span>
+        <div class="flex justify-center"><span class="gold-accent"></span></div>
+        <h2 class="section-title text-white mt-4">Get Your <span class="text-gold">Fire</span><br/>Wherever You Are</h2>
+        <p class="text-gray-500 mt-4 max-w-lg mx-auto">Order online for pickup or delivery. The flame follows.</p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 reveal">
+        <a href="#" class="btn-gold px-10 py-4 rounded-xl text-sm font-semibold tracking-wide flex items-center gap-3 min-w-[200px] justify-center">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          Uber Eats
+        </a>
+        <a href="#" class="btn-outline px-10 py-4 rounded-xl text-sm font-semibold tracking-wide flex items-center gap-3 min-w-[200px] justify-center">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          Mr D
+        </a>
+      </div>
+
+      <div class="divider max-w-md mx-auto my-12"></div>
+
+      <div class="reveal grid sm:grid-cols-3 gap-6 text-left max-w-2xl mx-auto">
+        <div class="bg-[#111] p-6 rounded-xl border border-white/5">
+          <h4 class="text-white font-semibold text-sm tracking-wide">Visit Us</h4>
+          <p class="text-gray-500 text-sm mt-2 leading-relaxed">Cnr Print &amp; Zeiss Rd,<br/>Laser Park,<br/>Johannesburg, 2040</p>
+        </div>
+        <div class="bg-[#111] p-6 rounded-xl border border-white/5">
+          <h4 class="text-white font-semibold text-sm tracking-wide">Call Us</h4>
+          <p class="text-gray-500 text-sm mt-2 leading-relaxed">078 775 7734</p>
+        </div>
+        <div class="bg-[#111] p-6 rounded-xl border border-white/5">
+          <h4 class="text-white font-semibold text-sm tracking-wide">Hours</h4>
+          <p class="text-gray-500 text-sm mt-2 leading-relaxed">Mon–Sun: 11:00 – 22:00<br/>Fri–Sat: 11:00 – 23:00</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-16 px-4 sm:px-6 lg:px-12 border-t" style="background: #ffffff; border-color: #eee;">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+        <!-- Brand -->
+        <div class="sm:col-span-2 lg:col-span-1">
+          <a href="#" class="flex items-center gap-3 mb-4">
+            <img src="logo.jpg" alt="Fiestas Chicken Logo" class="w-10 h-10 rounded-full object-cover" />
+            <span class="font-bold text-lg font-serif" style="color: #1a1a1a;">Fiestas Chicken</span>
+          </a>
+          <p class="text-sm leading-relaxed mb-6" style="color: #666;">Authentic charcoal-grilled chicken in the heart of Johannesburg. Fire. Flavour. Family.</p>
+          <div class="flex gap-3">
+            <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center hover:text-gold transition-all border" style="background: #f0f0f0; border-color: #ddd; color: #888;"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center hover:text-gold transition-all border" style="background: #f0f0f0; border-color: #ddd; color: #888;"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full flex items-center justify-center hover:text-gold transition-all border" style="background: #f0f0f0; border-color: #ddd; color: #888;"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-semibold text-sm uppercase tracking-wider mb-5" style="color: #1a1a1a;">Quick Links</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="#menu" class="footer-link" style="color: #666;">Menu</a></li>
+            <li><a href="#combos" class="footer-link" style="color: #666;">Family Combos</a></li>
+            <li><a href="#about" class="footer-link" style="color: #666;">About Us</a></li>
+            <li><a href="#testimonials" class="footer-link" style="color: #666;">Reviews</a></li>
+            <li><a href="#contact" class="footer-link" style="color: #666;">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="font-semibold text-sm uppercase tracking-wider mb-5" style="color: #1a1a1a;">Contact</h4>
+          <ul class="space-y-3 text-sm" style="color: #666;">
+            <li>Cnr Print &amp; Zeiss Rd, Laser Park</li>
+            <li>Johannesburg, 2040</li>
+            <li>078 775 7734</li>
+            <li>info@fiestaschicken.co.za</li>
+          </ul>
+        </div>
+
+        <!-- Hours -->
+        <div>
+          <h4 class="font-semibold text-sm uppercase tracking-wider mb-5" style="color: #1a1a1a;">Hours</h4>
+          <ul class="space-y-3 text-sm" style="color: #666;">
+            <li class="flex justify-between"><span>Mon–Thu</span><span style="color: #1a1a1a;">11:00–22:00</span></li>
+            <li class="flex justify-between"><span>Fri–Sat</span><span style="color: #1a1a1a;">11:00–23:00</span></li>
+            <li class="flex justify-between"><span>Sunday</span><span style="color: #1a1a1a;">12:00–20:00</span></li>
+          </ul>
+          <div class="mt-6 pt-6 border-t flex flex-wrap gap-3" style="border-color: #eee;">
+            <a href="#" class="text-xs px-3 py-1.5 rounded-full font-semibold text-white" style="background: #2ecc71;"><i class="fab fa-uber mr-1"></i> Uber Eats</a>
+            <a href="#" class="text-xs px-3 py-1.5 rounded-full font-semibold text-white" style="background: #e74c3c;"><i class="fas fa-motorcycle mr-1"></i> Mr D</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t flex flex-col sm:flex-row justify-between items-center gap-4 text-xs" style="border-color: #eee; color: #888;">
+        <p>&copy; 2024 Fiestas Chicken. All rights reserved.</p>
+        <p>Website by <a href="https://stopher-malik.co.za" target="_blank" class="hover:text-gold transition-colors" style="color: var(--gold);">Stopher Malik</a> &amp; <a href="https://smk.stopher-malik.co.za" target="_blank" class="hover:text-gold transition-colors" style="color: var(--gold);">SMK Web Design</a></p>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-gold transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-gold transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ========== MENU DATA ==========
+    const menuData = [
+      { id: 1, name: "Signature Charcoal Burger", desc: "Double patty, aged cheddar, smoky bacon, peri-mayo, charcoal bun.", price: 89, image: "Signature Charcoal Burger.jpg", category: "burgers" },
+      { id: 2, name: "Peri-Peri Chicken Burger", desc: "Flame-grilled chicken breast, peri-peri glaze, fresh slaw, brioche.", price: 79, image: "Peri-Peri Chicken Burger.jpg", category: "burgers" },
+      { id: 3, name: "Double Cheese Bacon Burger", desc: "Two beef patties, double cheese, crispy bacon, secret sauce.", price: 99, image: "Double Cheese Bacon Burger.jpg", category: "burgers" },
+      { id: 4, name: "Whole Grilled Chicken", desc: "Spatchcocked, charcoal-grilled, basted in peri-peri. Serves 2–3.", price: 179, image: "Whole Grilled Chicken.jpg", category: "grills" },
+      { id: 5, name: "Flame-Grilled Quarter Chicken", desc: "Quarter bird, skin crackling, served with your choice of side.", price: 69, image: "Flame-Grilled Quarter Chicken.jpg", category: "grills" },
+      { id: 6, name: "Charcoal Grilled Ribs", desc: "Pork ribs, low & slow over charcoal, sticky braai glaze.", price: 139, image: "Charcoal Grilled Ribs.jpg", category: "grills" },
+      { id: 7, name: "Peri-Peri Wings (6pc)", desc: "Crispy wings tossed in house peri-peri sauce. Choose mild or hot.", price: 59, image: "Peri-Peri Wings.jpg", category: "peri" },
+      { id: 8, name: "Peri-Peri Platter", desc: "Wings, thighs, and strips — fire-grilled with our signature marinade.", price: 129, image: "Peri-Peri Platter.jpg", category: "peri" },
+      { id: 9, name: "Loaded Nachos", desc: "Tortilla chips, cheese sauce, jalapeños, salsa, sour cream, guac.", price: 69, image: "Loaded Nachos.jpg", category: "starters" },
+      { id: 10, name: "Crispy Calamari", desc: "Lightly dusted, flash-fried, served with peri-mayo and lemon.", price: 74, image: "Crispy Calamari.jpg", category: "starters" },
+      { id: 11, name: "Chips & Dip Trio", desc: "Thick-cut chips, aioli, peri-ketchup, cheese sauce.", price: 49, image: "Chips & Dip Trio.jpg", category: "starters" },
+      { id: 12, name: "Chocolate Lava Cake", desc: "Warm molten centre, vanilla bean ice cream, gold dust.", price: 59, image: "Chocolate Lava Cake.jpg", category: "desserts" },
+      { id: 13, name: "Malva Pudding", desc: "Classic South African baked pudding, cream, apricot glaze.", price: 54, image: "Malva Pudding.jpg", category: "desserts" },
+      { id: 14, name: "Craft Sodas", desc: "Artisan sparkling sodas — ginger, granadilla, or cola.", price: 24, image: "Craft Sodas.jpg", category: "drinks" },
+      { id: 15, name: "Local Craft Beers", desc: "Rotating taps from Cape Town's finest breweries.", price: 39, image: "Local Craft Beers.jpg", category: "drinks" },
+      { id: 16, name: "South African Wines", desc: "Selected Cape wines — red, white, or rosé by the glass.", price: 44, image: "South African Wines.jpg", category: "drinks" }
+    ];
+
+    // ========== CART ==========
+    let cart = [];
+    const cartSidebar = document.getElementById('cart-sidebar');
+    const cartOverlay = document.getElementById('cart-overlay');
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    const cartCountBadge = document.getElementById('cart-count-badge');
+    const cartItemCount = document.getElementById('cart-item-count');
+
+    function updateCart() {
+      const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+      const count = cart.reduce((sum, item) => sum + item.qty, 0);
+      cartTotal.textContent = 'R' + total.toFixed(2);
+      cartCountBadge.textContent = count;
+      cartItemCount.textContent = count + ' item' + (count !== 1 ? 's' : '');
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = `
+          <div class="flex flex-col items-center justify-center h-full text-center text-gray-600">
+            <svg class="w-16 h-16 mb-4 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+            </svg>
+            <p class="text-sm">Your cart is empty</p>
+            <p class="text-xs text-gray-700 mt-1">Add some fiery goodness!</p>
+          </div>
+        `;
+        return;
+      }
+
+      cartItems.innerHTML = cart.map(item => `
+        <div class="cart-item" data-id="${item.id}">
+          <img src="${item.image}" alt="${item.name}" class="cart-item-img" onerror="this.src='https://placehold.co/100x100/1a1a1a/d4af37?text=F'"/>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-white truncate">${item.name}</p>
+            <p class="text-gold text-sm font-semibold">R${item.price}</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="qty-btn" onclick="changeQty(${item.id}, -1)">−</button>
+            <span class="text-sm text-white font-medium w-5 text-center">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+          </div>
+          <button class="remove-btn" onclick="removeFromCart(${item.id})">&times;</button>
+        </div>
+      `).join('');
+    }
+
+    function addToCart(id, name, price, image) {
+      const existing = cart.find(item => item.id === id);
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({ id, name, price, image, qty: 1 });
+      }
+      updateCart();
+      cartCountBadge.classList.add('bump');
+      setTimeout(() => cartCountBadge.classList.remove('bump'), 300);
+      cartSidebar.classList.add('open');
+      cartOverlay.classList.add('open');
+    }
+
+    function changeQty(id, delta) {
+      const item = cart.find(i => i.id === id);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(i => i.id !== id);
+      }
+      updateCart();
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(i => i.id !== id);
+      updateCart();
+    }
+
+    document.getElementById('cart-toggle').addEventListener('click', () => {
+      cartSidebar.classList.toggle('open');
+      cartOverlay.classList.toggle('open');
+    });
+    document.getElementById('cart-close').addEventListener('click', () => {
+      cartSidebar.classList.remove('open');
+      cartOverlay.classList.remove('open');
+    });
+    document.getElementById('cart-overlay').addEventListener('click', () => {
+      cartSidebar.classList.remove('open');
+      cartOverlay.classList.remove('open');
+    });
+
+    // ========== RENDER MENU ==========
+    const menuGrid = document.getElementById('menu-grid');
+    let activeCategory = 'all';
+
+    function renderMenu(category) {
+      const items = category === 'all' ? menuData : menuData.filter(item => item.category === category);
+      menuGrid.innerHTML = items.map(item => `
+        <div class="menu-card reveal group">
+          <div class="relative h-52 overflow-hidden">
+            <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/1a1a1a/d4af37?text=F'"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-lg font-bold text-white font-serif">${item.name}</h3>
+            <p class="text-sm text-gray-500 mt-1.5 leading-relaxed">${item.desc}</p>
+            <div class="flex items-center justify-between mt-5">
+              <span class="text-xl font-bold text-gold">R${item.price}</span>
+              <button class="btn-primary px-4 py-2 rounded-lg text-xs font-semibold add-to-cart-menu"
+                data-id="${item.id}" data-name="${item.name}" data-price="${item.price}" data-image="${item.image}">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+      // Attach event listeners to add-to-cart buttons
+      document.querySelectorAll('.add-to-cart-menu').forEach(btn => {
+        btn.addEventListener('click', function() {
+          addToCart(
+            parseInt(this.dataset.id),
+            this.dataset.name,
+            parseInt(this.dataset.price),
+            this.dataset.image
+          );
+        });
+      });
+      // Reveal animation
+      setTimeout(() => {
+        document.querySelectorAll('#menu-grid .menu-card').forEach(el => el.classList.add('visible'));
+      }, 100);
+    }
+
+    // ========== TAB FILTER ==========
+    document.querySelectorAll('.menu-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        activeCategory = this.dataset.category;
+        renderMenu(activeCategory);
+        document.querySelectorAll('#menu-grid .menu-card').forEach(el => {
+          el.classList.remove('visible');
+          void el.offsetWidth;
+          el.classList.add('visible');
+        });
+      });
+    });
+
+    // ========== COMBO CART BUTTONS ==========
+    document.querySelectorAll('.add-to-cart-combo').forEach(btn => {
+      btn.addEventListener('click', function() {
+        addToCart(
+          Math.floor(Math.random() * 90000) + 10000,
+          this.dataset.name,
+          parseInt(this.dataset.price),
+          this.dataset.image
+        );
+      });
+    });
+
+    // ========== NAVBAR ==========
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const current = window.scrollY;
+      if (current > 100) {
+        navbar.classList.add('bg-[#0A0A0A]/95', 'backdrop-blur-lg', 'shadow-lg', 'shadow-black/20');
+        if (current > lastScroll) {
+          navbar.style.transform = 'translateY(-100%)';
+        } else {
+          navbar.style.transform = 'translateY(0)';
+        }
+      } else {
+        navbar.classList.remove('bg-[#0A0A0A]/95', 'backdrop-blur-lg', 'shadow-lg', 'shadow-black/20');
+        navbar.style.transform = 'translateY(0)';
+      }
+      lastScroll = current;
+    });
+
+    // ========== MOBILE MENU ==========
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.add('hidden');
+      });
+    });
+
+    // ========== REVEAL ON SCROLL ==========
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ========== EMBER / PARTICLE EFFECT ==========
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let emberSparks = [];
+    let animFrame;
+    let mouseX = 0;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Ember {
+      constructor() { this.reset(true); }
+      reset(init) {
+        this.x = Math.random() * canvas.width;
+        this.y = init ? Math.random() * canvas.height : canvas.height + Math.random() * 40;
+        this.size = Math.random() * 5 + 2;
+        this.baseSize = this.size;
+        this.speedY = -(Math.random() * 1.2 + 0.4);
+        this.speedX = (Math.random() - 0.5) * 0.8;
+        this.opacity = Math.random() * 0.8 + 0.2;
+        this.life = Math.random() * 0.5 + 0.5;
+        this.maxLife = this.life;
+        this.decay = Math.random() * 0.003 + 0.001;
+        this.spawnTimer = 0;
+        this.spawnRate = Math.random() * 8 + 4;
+        const colors = [
+          '255, 220, 80',
+          '255, 180, 50',
+          '255, 140, 30',
+          '255, 100, 20',
+          '255, 60, 10',
+          '200, 40, 15',
+          '255, 200, 100'
+        ];
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.pulse = Math.random() * Math.PI * 2;
+        this.pulseSpeed = Math.random() * 0.04 + 0.01;
+        this.wobble = Math.random() * Math.PI * 2;
+        this.wobbleSpeed = (Math.random() - 0.5) * 0.02;
+        this.wobbleAmp = Math.random() * 20 + 5;
+        this.trail = [];
+        this.trailLen = Math.floor(Math.random() * 6 + 3);
+      }
+      update() {
+        this.trail.push({ x: this.x, y: this.y, life: 1 });
+        if (this.trail.length > this.trailLen) this.trail.shift();
+        this.trail.forEach(t => t.life -= 0.15);
+
+        this.wobble += this.wobbleSpeed;
+        this.speedX += Math.sin(this.wobble) * 0.04;
+        this.speedX *= 0.995;
+        this.x += this.speedX + Math.sin(this.wobble) * this.wobbleAmp * 0.002;
+        this.y += this.speedY;
+        this.speedY *= 0.998;
+        this.life -= this.decay;
+        this.pulse += this.pulseSpeed;
+        this.size = this.baseSize * (0.7 + 0.3 * Math.sin(this.pulse));
+        if (this.y < -40 || this.life <= 0 || this.size < 0.5) {
+          this.reset(false);
+        }
+
+        this.spawnTimer++;
+        if (this.spawnTimer > this.spawnRate && this.life > 0.3) {
+          this.spawnTimer = 0;
+          emberSparks.push(new Spark(this.x, this.y, this.color));
+        }
+      }
+      draw() {
+        for (let i = 0; i < this.trail.length; i++) {
+          const t = this.trail[i];
+          const alpha = t.life * this.opacity * 0.3;
+          if (alpha <= 0) continue;
+          ctx.beginPath();
+          ctx.arc(t.x, t.y, this.size * (i / this.trail.length) * 0.4, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${this.color}, ${alpha})`;
+          ctx.fill();
+        }
+
+        const glowSize = this.size * 4;
+        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, glowSize);
+        gradient.addColorStop(0, `rgba(${this.color}, ${this.opacity * this.life})`);
+        gradient.addColorStop(0.2, `rgba(${this.color}, ${this.opacity * this.life * 0.7})`);
+        gradient.addColorStop(0.5, `rgba(${this.color}, ${this.opacity * this.life * 0.3})`);
+        gradient.addColorStop(1, `rgba(${this.color}, 0)`);
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, glowSize, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size * 0.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * this.life * 0.8})`;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${this.color}, ${this.opacity * this.life * 0.9})`;
+        ctx.fill();
+      }
+    }
+
+    class Spark {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 2 + 0.5;
+        this.speedX = Math.cos(angle) * speed;
+        this.speedY = Math.sin(angle) * speed - 0.5;
+        this.size = Math.random() * 2 + 0.5;
+        this.life = 1;
+        this.decay = Math.random() * 0.03 + 0.02;
+        this.color = color;
+        this.gravity = 0.02;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.speedY += this.gravity;
+        this.speedX *= 0.98;
+        this.life -= this.decay;
+      }
+      draw() {
+        if (this.life <= 0) return;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${this.color}, ${this.life * 0.8})`;
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${this.color}, ${this.life * 0.2})`;
+        ctx.fill();
+      }
+    }
+
+    const particleCount = Math.min(100, Math.floor(window.innerWidth / 12));
+    for (let i = 0; i < particleCount; i++) {
+      const p = new Ember();
+      p.y = Math.random() * canvas.height * 1.2;
+      p.life = Math.random() * 0.5 + 0.3;
+      particles.push(p);
+    }
+
+    for (let i = 0; i < 20; i++) {
+      const p = new Ember();
+      p.size = Math.random() * 8 + 4;
+      p.baseSize = p.size;
+      p.speedY = -(Math.random() * 0.6 + 0.2);
+      p.color = '255, 180, 50';
+      p.y = Math.random() * canvas.height;
+      p.life = Math.random() * 0.3 + 0.2;
+      particles.push(p);
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach(p => { p.update(); p.draw(); });
+
+      emberSparks = emberSparks.filter(s => s.life > 0);
+      emberSparks.forEach(s => { s.update(); s.draw(); });
+
+      animFrame = requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // ========== INIT ==========
+    renderMenu('all');
+    updateCart();
+  </script>
+</body>
+</html>

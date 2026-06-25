@@ -1,0 +1,46 @@
+# Large unused files
+*.mp4
+!dist/video/hero-16x9.mp4
+!video/hero-16x9.mp4
+
+# Random images not used by the site
+21a7i.jpg
+2AhHV.jpg
+2qNHN.jpg
+4UBPa.jpg
+8bAE8.jpg
+8EpDM.jpg
+9jAz6.jpg
+AjYLZ.jpg
+aTK5X.jpg
+BxKgl.jpg
+Cg2aW.jpg
+CiDql.jpg
+cjsQN.jpg
+ExwO6.jpg
+fcZQs.jpg
+GqStU.jpg
+GqStU (1).jpg
+HDzes.jpg
+IF3HN.jpg
+jc2qM.jpg
+jhgYZ.jpg
+JhMF1.jpg
+kFcf8.jpg
+KWb0t.jpg
+mdYF3.jpg
+oQfRi.jpg
+OGiWo.jpg
+OJfCs.jpg
+PlBOb.jpg
+poW0X.jpg
+tfJZk.jpg
+T0o5H.jpg
+W3WZO.jpg
+wyL6z.jpg
+zGN2j.jpg
+boma-hero-welcome.jpg
+
+# OS files
+Thumbs.db
+.DS_Store

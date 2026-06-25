@@ -417,6 +417,11 @@
     ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #555; }
 
+    #lightbox.open { pointer-events: all; opacity: 1; }
+    #lightbox.open #lb-img { transform: scale(1); }
+    #lightbox.open #lb-caption { opacity: 1; bottom: 3rem; }
+    #lightbox.open #lb-counter { opacity: 1; }
+
     @media (max-width: 768px) {
       .section-title { font-size: 2rem; }
       .menu-tab { padding: 0.35rem 0.9rem; font-size: 0.8rem; }
@@ -460,6 +465,16 @@
       </div>
       <button id="checkout-btn" class="btn-gold w-full py-3 rounded-xl font-semibold text-sm">Checkout via WhatsApp</button>
     </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 z-[999] flex items-center justify-center pointer-events-none opacity-0 transition-all duration-500" style="background: rgba(0,0,0,0.92); backdrop-filter: blur(12px);">
+    <button id="lb-close" class="absolute top-5 right-5 w-12 h-12 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all text-3xl z-10">&times;</button>
+    <button id="lb-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all text-2xl z-10 hidden"><i class="fas fa-chevron-left"></i></button>
+    <button id="lb-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all text-2xl z-10 hidden"><i class="fas fa-chevron-right"></i></button>
+    <img id="lb-img" class="max-h-[88vh] max-w-[92vw] object-contain rounded-2xl shadow-2xl scale-95 transition-all duration-500" style="box-shadow: 0 0 80px rgba(212,175,55,0.1);" />
+    <div id="lb-caption" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/80 text-sm font-medium tracking-wide opacity-0 transition-all duration-500"></div>
+    <div id="lb-counter" class="absolute top-5 left-5 text-white/50 text-xs font-mono opacity-0 transition-all duration-500"></div>
   </div>
 
   <!-- Navigation -->
@@ -522,7 +537,7 @@
     </div>
 
     <div class="flex-1"></div>
-    <div class="hero-content text-center px-4 sm:px-6 max-w-5xl mx-auto">
+    <div class="hero-content text-center px-4 sm:px-6 max-w-5xl mx-auto" style="margin-bottom: 5vh;">
       <!-- CTA Buttons -->
       <div class="flex flex-row items-center justify-center gap-2 sm:gap-6">
         <a href="#menu" class="btn-primary text-white px-3 sm:px-10 py-2.5 sm:py-4 rounded-full text-[0.7rem] sm:text-lg font-semibold inline-flex items-center gap-1.5 sm:gap-3 whitespace-nowrap">
@@ -1192,6 +1207,62 @@
       animFrame = requestAnimationFrame(animateParticles);
     }
     animateParticles();
+
+    // ========== LIGHTBOX ==========
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbCaption = document.getElementById('lb-caption');
+    const lbCounter = document.getElementById('lb-counter');
+    const lbPrev = document.getElementById('lb-prev');
+    const lbNext = document.getElementById('lb-next');
+    let lbImages = [];
+    let lbIndex = 0;
+
+    function openLightbox(imgEl) {
+      const allImgs = [...document.querySelectorAll('.menu-card img, .combo-card img, #story img, .gallery-item img')];
+      lbImages = allImgs;
+      lbIndex = allImgs.indexOf(imgEl);
+      if (lbIndex === -1) return;
+      showLightboxImage();
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function showLightboxImage() {
+      const img = lbImages[lbIndex];
+      lbImg.src = img.src;
+      lbCaption.textContent = img.alt || '';
+      lbCounter.textContent = `${lbIndex + 1} / ${lbImages.length}`;
+      lbPrev.classList.toggle('hidden', lbImages.length <= 1);
+      lbNext.classList.toggle('hidden', lbImages.length <= 1);
+    }
+
+    document.querySelectorAll('.menu-card img, .combo-card img, #story img, .gallery-item img').forEach(img => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => openLightbox(img));
+    });
+
+    document.getElementById('lb-close').addEventListener('click', () => {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+    });
+    lbPrev.addEventListener('click', () => {
+      lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
+      showLightboxImage();
+    });
+    lbNext.addEventListener('click', () => {
+      lbIndex = (lbIndex + 1) % lbImages.length;
+      showLightboxImage();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') { lb.classList.remove('open'); document.body.style.overflow = ''; }
+      if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; showLightboxImage(); }
+      if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; showLightboxImage(); }
+    });
 
     // ========== INIT ==========
     renderMenu('all');

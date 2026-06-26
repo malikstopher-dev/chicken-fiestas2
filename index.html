@@ -422,6 +422,9 @@
     #lightbox.open #lb-caption { opacity: 1; bottom: 3rem; }
     #lightbox.open #lb-counter { opacity: 1; }
 
+    @media (max-width: 1023px) {
+      body { padding-bottom: 76px; }
+    }
     @media (max-width: 768px) {
       .section-title { font-size: 2rem; }
       .menu-tab { padding: 0.35rem 0.9rem; font-size: 0.8rem; }
@@ -1268,5 +1271,17 @@
     renderMenu('all');
     updateCart();
   </script>
+
+  <!-- Mobile Bottom Nav -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 lg:hidden" style="background: rgba(15,15,15,0.96); backdrop-filter: blur(20px) saturate(180%); border-top: 1px solid rgba(212,175,55,0.12); padding: 10px 16px; padding-bottom: calc(10px + env(safe-area-inset-bottom, 12px)); box-shadow: 0 -4px 30px rgba(0,0,0,0.5);">
+    <div class="flex items-center gap-3">
+      <a href="#menu" class="flex-1 btn-primary text-white text-center py-3 rounded-xl text-xs font-semibold inline-flex items-center justify-center gap-2">
+        <i class="fas fa-fire text-sm"></i> Explore Menu
+      </a>
+      <a href="#contact" class="flex-1 btn-outline text-center py-3 rounded-xl text-xs font-semibold inline-flex items-center justify-center gap-2">
+        <i class="fas fa-truck text-sm"></i> Order Online
+      </a>
+    </div>
+  </div>
 </body>
 </html>

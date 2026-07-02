@@ -2,10 +2,10 @@
 *.mp4
 !dist/video/hero-16x9.mp4
 !video/hero-16x9.mp4
-!video/mobile-bg-1-opt.mp4
-!video/mobile-bg-2-opt.mp4
-!dist/video/mobile-bg-1-opt.mp4
-!dist/video/mobile-bg-2-opt.mp4
+!video/mobile-hero-opt.mp4
+!video/mobile-hero-2-opt.mp4
+!dist/video/mobile-hero-opt.mp4
+!dist/video/mobile-hero-2-opt.mp4
 
 # Random images not used by the site
 21a7i.jpg

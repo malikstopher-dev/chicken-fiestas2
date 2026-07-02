@@ -368,14 +368,32 @@
       display: flex;
       flex-direction: column;
     }
-    .hero video {
+    .hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-video {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: fill;
-      z-index: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 1.2s ease-in-out;
+    }
+    .hero-video-desktop { z-index: 1; }
+    .hero-video-mobile {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: none;
+    }
+    .hero-video-mobile-el { opacity: 0; }
+    .hero-video-mobile-el:first-child { opacity: 1; }
+    @media (max-width: 768px) {
+      .hero-video-desktop { display: none; }
+      .hero-video-mobile { display: block; }
     }
     .hero-overlay {
       position: absolute;
@@ -546,9 +564,19 @@
   <!-- Hero Section -->
   <section id="hero" class="hero flex flex-col">
     <!-- Video Background -->
-    <video autoplay muted loop playsinline>
-      <source src="video/hero-16x9.mp4" type="video/mp4" />
-    </video>
+    <div class="hero-video-wrap">
+      <video class="hero-video hero-video-desktop" autoplay muted loop playsinline>
+        <source src="video/hero-16x9.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-video-mobile">
+        <video class="hero-video hero-video-mobile-el" id="hero-mob-1" autoplay muted playsinline preload="auto">
+          <source src="video/mobile-bg-1-opt.mp4" type="video/mp4" />
+        </video>
+        <video class="hero-video hero-video-mobile-el" id="hero-mob-2" muted playsinline preload="auto">
+          <source src="video/mobile-bg-2-opt.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
     <div class="hero-overlay absolute inset-0"></div>
 
     <!-- Background particles (subtle smoke/embers) -->
@@ -1283,6 +1311,44 @@
       if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; showLightboxImage(); }
       if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; showLightboxImage(); }
     });
+
+    // Mobile Hero Crossfade
+    (function() {
+      if (window.innerWidth > 768) return;
+      var vids = document.querySelectorAll('.hero-video-mobile-el');
+      if (vids.length < 2) return;
+      var active = 0;
+      var switching = false;
+      var CROSSFADE_MS = 1200;
+      var LEAD_S = 1.5;
+
+      function crossfade() {
+        if (switching) return;
+        switching = true;
+        var from = vids[active];
+        var to = vids[1 - active];
+        to.currentTime = 0;
+        to.play();
+        from.style.opacity = '0';
+        to.style.opacity = '1';
+        setTimeout(function() {
+          from.pause();
+          active = 1 - active;
+          switching = false;
+        }, CROSSFADE_MS);
+      }
+
+      vids.forEach(function(v, i) {
+        v.addEventListener('timeupdate', function() {
+          if (i === active && !switching && v.duration - v.currentTime < LEAD_S) {
+            crossfade();
+          }
+        });
+      });
+
+      vids[0].style.opacity = '1';
+      vids[1].style.opacity = '0';
+    })();
 
     // Init
     renderMenu('all');

@@ -382,14 +382,24 @@
       object-fit: cover;
       transition: opacity 1.2s ease-in-out;
     }
-    .hero-video-desktop { z-index: 1; }
+    .hero-video-desktop { z-index: 1; object-fit: fill; transition: none; }
     .hero-video-mobile {
       position: absolute;
       inset: 0;
       z-index: 2;
       display: none;
     }
-    .hero-video-mobile-el { opacity: 0; }
+    .hero-video-mobile-el {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: opacity 1.2s ease-in-out;
+      opacity: 0;
+    }
     .hero-video-mobile-el:first-child { opacity: 1; }
     @media (max-width: 768px) {
       .hero-video-desktop { display: none; }

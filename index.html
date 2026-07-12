@@ -187,7 +187,7 @@
       transform: translateY(-6px);
       box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(212,175,55,0.08);
     }
-    .menu-card img { transition: transform 0.6s ease; object-position: top center; }
+    .menu-card img { transition: transform 0.6s ease; }
     .menu-card:hover img { transform: scale(1.08); }
 
     .combo-card {
@@ -1016,7 +1016,7 @@
       const items = category === 'all' ? menuData : menuData.filter(item => item.category === category);
       menuGrid.innerHTML = items.map(item => `
         <div class="menu-card reveal group">
-          <div class="relative h-52 overflow-hidden">
+          <div class="relative h-72 overflow-hidden">
             <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x300/1a1a1a/d4af37?text=F'"/>
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </div>

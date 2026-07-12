@@ -30,6 +30,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="video" href="video/hero-desktop-opt.mp4" media="(min-width: 769px)" fetchpriority="high">
+  <link rel="preload" as="video" href="video/mobile-hero-opt-fast.mp4" media="(max-width: 768px)" fetchpriority="high">
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- JSON-LD Structured Data -->
@@ -383,29 +385,16 @@
       transition: opacity 1.2s ease-in-out;
     }
     .hero-video-desktop { z-index: 1; object-fit: fill; transition: none; }
-    .hero-video-mobile {
-      position: absolute;
-      inset: 0;
+    .hero-video-mobile-el {
       z-index: 2;
       display: none;
-      background: #0A0A0A;
-      overflow: hidden;
-    }
-    .hero-video-mobile-el {
-      position: absolute;
-      top: -8%;
-      left: 0;
-      width: 100%;
-      height: 116%;
-      object-fit: cover;
-      object-position: center 45%;
-      transition: opacity 1.2s ease-in-out;
+      top: -10%;
       opacity: 0;
     }
     .hero-video-mobile-el:first-child { opacity: 1; }
     @media (max-width: 768px) {
       .hero-video-desktop { display: none; }
-      .hero-video-mobile { display: block; }
+      .hero-video-mobile-el { display: block; }
     }
     .hero-overlay {
       position: absolute;
@@ -577,17 +566,15 @@
   <section id="hero" class="hero flex flex-col">
     <!-- Video Background -->
     <div class="hero-video-wrap">
-      <video class="hero-video hero-video-desktop" autoplay muted loop playsinline>
-        <source src="video/hero-16x9.mp4" type="video/mp4" />
+      <video class="hero-video hero-video-desktop" autoplay muted loop playsinline preload="auto" poster="video/poster-desktop.jpg">
+        <source src="video/hero-desktop-opt.mp4" type="video/mp4" media="(min-width: 769px)" />
       </video>
-      <div class="hero-video-mobile">
-        <video class="hero-video hero-video-mobile-el" id="hero-mob-1" autoplay muted playsinline preload="auto">
-          <source src="video/mobile-hero-opt.mp4" type="video/mp4" />
-        </video>
-        <video class="hero-video hero-video-mobile-el" id="hero-mob-2" muted playsinline preload="auto">
-          <source src="video/mobile-hero-2-opt.mp4" type="video/mp4" />
-        </video>
-      </div>
+      <video class="hero-video hero-video-mobile-el" id="hero-mob-1" autoplay muted playsinline preload="auto" poster="video/poster-mobile.jpg">
+        <source src="video/mobile-hero-opt-fast.mp4" type="video/mp4" media="(max-width: 768px)" />
+      </video>
+      <video class="hero-video hero-video-mobile-el" id="hero-mob-2" muted playsinline preload="auto" poster="video/poster-mobile.jpg">
+        <source src="video/mobile-hero-2-opt-fast.mp4" type="video/mp4" media="(max-width: 768px)" />
+      </video>
     </div>
     <div class="hero-overlay absolute inset-0"></div>
 
@@ -600,7 +587,7 @@
     <div class="hero-content text-center px-4 sm:px-6 max-w-5xl mx-auto">
       <!-- CTA Buttons -->
       <div class="hidden lg:flex items-center justify-center gap-6">
-        <a href="#menu" class="btn-primary text-white px-10 py-4 rounded-full text-base sm:text-lg font-semibold inline-flex items-center gap-3">
+          <a href="#menu" class="btn-outline text-white px-10 py-4 rounded-full text-base sm:text-lg font-semibold inline-flex items-center gap-3">
           <i class="fas fa-fire"></i> Explore Menu
         </a>
         <a href="#contact" class="btn-outline px-10 py-4 rounded-full text-base sm:text-lg font-semibold inline-flex items-center gap-3">
@@ -666,6 +653,13 @@
         <button class="menu-tab" data-category="starters">Starters</button>
         <button class="menu-tab" data-category="desserts">Desserts</button>
         <button class="menu-tab" data-category="drinks">Drinks</button>
+        <button class="menu-tab" data-category="feasts">Feasts For One</button>
+        <button class="menu-tab" data-category="shawarmas">Shawarmas</button>
+        <button class="menu-tab" data-category="thumbsup">Thumbs Up</button>
+        <button class="menu-tab" data-category="loadedfries">Loaded Fries</button>
+        <button class="menu-tab" data-category="strips">Chicken Strips</button>
+        <button class="menu-tab" data-category="salads">Salads</button>
+        <button class="menu-tab" data-category="sides">Sides</button>
       </div>
 
       <!-- Menu Grid -->
@@ -891,7 +885,31 @@
       { id: 13, name: "Malva Pudding", desc: "Classic South African baked pudding, cream, apricot glaze.", price: 54, image: "Malva Pudding.jpg", category: "desserts" },
       { id: 14, name: "Craft Sodas", desc: "Artisan sparkling sodas — ginger, granadilla, or cola.", price: 24, image: "Craft Sodas.jpg", category: "drinks" },
       { id: 15, name: "Local Craft Beers", desc: "Rotating taps from Cape Town's finest breweries.", price: 39, image: "Local Craft Beers.jpg", category: "drinks" },
-      { id: 16, name: "South African Wines", desc: "Selected Cape wines — red, white, or rosé by the glass.", price: 44, image: "South African Wines.jpg", category: "drinks" }
+      { id: 16, name: "South African Wines", desc: "Selected Cape wines — red, white, or rosé by the glass.", price: 44, image: "South African Wines.jpg", category: "drinks" },
+      { id: 17, name: "1/4 Chicken", desc: "Flame-grilled quarter chicken, basted in our signature peri-peri sauce.", price: 45.90, image: "14 Chicken.png", category: "feasts" },
+      { id: 18, name: "1/4 Chicken & Side", desc: "Flame-grilled quarter chicken served with your choice of one side.", price: 55.90, image: "14 Chicken & Side.png", category: "feasts" },
+      { id: 19, name: "1/4 Chicken, Side & 330ml Drink", desc: "Quarter chicken with a side and a refreshing 330ml drink.", price: 65.90, image: "14 Chicken, Side & Drink.png", category: "feasts" },
+      { id: 20, name: "1/2 Chicken", desc: "Flame-grilled half chicken, basted in our signature peri-peri sauce.", price: 90, image: "12 Chicken.png", category: "feasts" },
+      { id: 21, name: "1/2 Chicken & Side", desc: "Flame-grilled half chicken served with your choice of one side.", price: 100.90, image: "12 Chicken & Side.png", category: "feasts" },
+      { id: 22, name: "1/2 Chicken, Side & 330ml Drink", desc: "Half chicken with a side and a refreshing 330ml drink.", price: 110.90, image: "12 Chicken, Side & Drink.png", category: "feasts" },
+      { id: 23, name: "Chicken Shawarma", desc: "Toasted shawarma wrap filled with grilled chicken and peri or garlic mayo.", price: 69.90, image: "Chicken Shawarma.png", category: "shawarmas" },
+      { id: 24, name: "Chicken Shawarma & Single Side", desc: "Toasted shawarma wrap with grilled chicken served with a single side.", price: 79.90, image: "Chicken Shawarma & Single Side.png", category: "shawarmas" },
+      { id: 25, name: "Chicken Shawarma, Side & 330ml Drink", desc: "Shawarma wrap with a side and a refreshing 330ml drink.", price: 89.90, image: "Chicken Shawarma, Single Side & 330ml Drink.png", category: "shawarmas" },
+      { id: 26, name: "Thumbs Up", desc: "Whole chicken, garlic loaf, coleslaw, and spicy rice or pap.", price: 189.90, image: "THUMBS UP 1 whole chicken , 1 garlic loaf, 1 coleslaw, 1 spicy rice or pap.png", category: "thumbsup" },
+      { id: 27, name: "Cherry Loaded Fries", desc: "Crispy fries topped with tender chicken, melted cheese and loaded sauce.", price: 44.90, image: "Cherry Loaded Fries.png", category: "loadedfries" },
+      { id: 28, name: "Chicken Strips", desc: "Crispy golden chicken strips, tender and flavourful.", price: 29.90, image: "Chicken Strips.png", category: "strips" },
+      { id: 29, name: "Chicken Strips & Single Side", desc: "Crispy chicken strips served with your choice of single side.", price: 39.90, image: "Chicken Strips & Single Side.png", category: "strips" },
+      { id: 30, name: "Chicken Strips, Side & 330ml Drink", desc: "Chicken strips with a side and a refreshing 330ml drink.", price: 49.90, image: "Chicken Strips, Single Side & 330ml Drink.png", category: "strips" },
+      { id: 31, name: "Garden Salad", desc: "Fresh garden salad with crisp lettuce, tomato, cucumber and dressing.", price: 36.90, image: "Garden Salad.png", category: "salads" },
+      { id: 32, name: "Mediterranean Salad", desc: "Mediterranean-style salad with feta, olives, onion and vinaigrette.", price: 46.90, image: "Mediterranean Salad.png", category: "salads" },
+      { id: 33, name: "Fries — Single", desc: "Golden crispy fries, perfectly seasoned.", price: 19.90, image: "Fries (Single).png", category: "sides" },
+      { id: 34, name: "Fries — Sharing", desc: "Generous portion of golden crispy fries for sharing.", price: 36.90, image: "Sharing Fries.png", category: "sides" },
+      { id: 35, name: "Pap & Tomato Relish — Single", desc: "Fluffy pap served with our tangy tomato relish.", price: 19.90, image: "Pap & Tomato Relish.png", category: "sides" },
+      { id: 36, name: "Pap & Tomato Relish — Sharing", desc: "Generous portion of pap with tangy tomato relish for sharing.", price: 36.90, image: "Pap & Tomato Relish (Sharing).png", category: "sides" },
+      { id: 37, name: "Spicy Rice — Single", desc: "Fragrant spicy rice, perfectly seasoned.", price: 19.90, image: "Spicy Rice.png", category: "sides" },
+      { id: 38, name: "Spicy Rice — Sharing", desc: "Generous portion of fragrant spicy rice for sharing.", price: 36.90, image: "Sharing Spicy Rice.png", category: "sides" },
+      { id: 39, name: "Coleslaw — Single", desc: "Creamy coleslaw with fresh crisp cabbage and carrot.", price: 19.90, image: "Coleslaw.png", category: "sides" },
+      { id: 40, name: "Coleslaw — Sharing", desc: "Generous portion of creamy coleslaw for sharing.", price: 36.90, image: "Sharing Coleslaw.png", category: "sides" }
     ];
 
     // Cart

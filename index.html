@@ -403,9 +403,15 @@
       background: linear-gradient(to bottom, rgba(10,10,10,0.1) 0%, rgba(10,10,10,0.25) 50%, rgba(10,10,10,0.6) 100%);
     }
     .hero-content {
-      position: relative;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
       z-index: 2;
       padding-bottom: 4rem;
+    }
+    @media (min-width: 1024px) {
+      .hero-content { padding-bottom: 2rem; }
     }
     @media (min-width: 1024px) {
       .hero-content { padding-bottom: 8rem; }
@@ -586,7 +592,6 @@
       <div id="bgEmbers" class="absolute inset-0"></div>
     </div>
 
-    <div class="flex-1"></div>
     <div class="hero-content text-center px-4 sm:px-6 max-w-5xl mx-auto">
       <!-- CTA Buttons -->
       <div class="hidden lg:flex items-center justify-center gap-6">
